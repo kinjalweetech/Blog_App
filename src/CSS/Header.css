@@ -1,0 +1,11 @@
+/* header */
+.header{
+    background-color: rgb(26, 25, 25);
+    height:auto;
+    width: 100%;
+}
+.header h1{
+    color: white;
+    padding: 2px;
+    padding-left: 20px;
+}
