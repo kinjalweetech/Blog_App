@@ -11,3 +11,77 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* ............... */
+.Footer{
+  /* justify-content: center; */
+  text-align: center;
+}
+/* AutherView/ApiView */
+/* Main container for the entire grid */
+.main-contain {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 2rem;
+  gap: 20px;
+}
+
+/* Each container for user information */
+.container {
+  flex: 1 1 calc(33.333% - 20px); /* Three items per row */
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Image styling */
+.container img {
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* Data inside each container */
+.data p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+/* View Details Button */
+.view-details-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.view-details-button:hover {
+  background-color: #0056b3;
+}
+
+/* Hover effect on each card */
+.container:hover {
+  transform: translateY(-5px);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .container {
+    flex: 1 1 calc(50% - 20px); /* Two items per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex: 1 1 100%; /* One item per row */
+  }
+}

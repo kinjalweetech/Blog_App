@@ -1,4 +1,5 @@
 import React from "react";
+import AuthorView from "../View/AutherView";
 
 const Header = () => {
   return (
@@ -31,6 +32,9 @@ const Header = () => {
           </div>
         </nav>
       </header>
+      <div>
+        <AuthorView/>
+      </div>
     </>
   );
 };

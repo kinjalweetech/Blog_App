@@ -1,11 +1,11 @@
-import React from 'react'
+// src/Redux/Store.js
+import { configureStore } from '@reduxjs/toolkit';
+import mockApiReducer from './ApiSlice'; // Ensure this path is correct
 
-function Store() {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+const store = configureStore({
+  reducer: {
+    mockApi: mockApiReducer,
+  },
+});
 
-export default Store
+export default store;
