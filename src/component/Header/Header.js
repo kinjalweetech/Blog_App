@@ -33,7 +33,7 @@ const Header = () => {
         </nav>
       </header>
       <div>
-        <AuthorView/>
+        {/* <AuthorView/> */}
       </div>
     </>
   );

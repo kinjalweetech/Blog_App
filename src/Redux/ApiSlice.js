@@ -52,50 +52,73 @@ export default mockApiSlice.reducer;
 
 
 
-// import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
+// import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 // import axios from "axios";
 
-// export const fetchAuthor = createAsyncThunk("author/fetchAuthor", async () => {
-//   try {
+// // Fetch data from API (all users)
+// export const fetchMockApiData = createAsyncThunk(
+//   "mockApi/fetchData",
+//   async () => {
 //     const response = await axios.get(
-//       https://66d7f3f837b1cadd8052c6c0.mockapi.io/images/images
+//       "https://66d7f3d137b1cadd8052c5c1.mockapi.io/https/mock"
 //     );
-//     console.log("author", response.data);
 //     return response.data;
-//   } catch (error) {
-//     return error.response.data;
 //   }
-// });
+// );
 
-// const AuthorSlice = createSlice({
-//   name: "author",
+// // Fetch posts by user ID
+// export const fetchUserPosts = createAsyncThunk(
+//   "mockApi/fetchUserPosts",
+//   async (userId) => {
+//     const response = await axios.get(
+//       `https://66d7f3d137b1cadd8052c5c1.mockapi.io/https/mock/${userId}/posts`
+//     );
+//     return response.data;
+//   }
+// );
+
+// // Redux slice
+// const mockApiSlice = createSlice({
+//   name: "mockApi",
 //   initialState: {
-//     data: [],
 //     loading: false,
+//     data: [],
+//     detail: {},
+//     posts: [],  // Holds posts of selected user
 //     error: null,
-//     details: null,
 //   },
 //   reducers: {
-//     requestDetailSuccessAction: (state, action) => {
-//       state.details = action.payload;
+//     setDetail: (state, action) => {
+//       state.detail = action.payload;
 //     },
 //   },
 //   extraReducers: (builder) => {
 //     builder
-//       .addCase(fetchAuthor.pending, (state) => {
+//       .addCase(fetchMockApiData.pending, (state) => {
 //         state.loading = true;
-//         state.error = null;
 //       })
-//       .addCase(fetchAuthor.fulfilled, (state, action) => {
+//       .addCase(fetchMockApiData.fulfilled, (state, action) => {
+//         state.loading = false;
 //         state.data = action.payload;
-//         state.loading = false;
 //       })
-//       .addCase(fetchAuthor.rejected, (state, action) => {
+//       .addCase(fetchMockApiData.rejected, (state, action) => {
 //         state.loading = false;
-//         state.error = action.payload;
+//         state.error = action.error.message;
+//       })
+//       .addCase(fetchUserPosts.pending, (state) => {
+//         state.loading = true;
+//       })
+//       .addCase(fetchUserPosts.fulfilled, (state, action) => {
+//         state.loading = false;
+//         state.posts = action.payload;  // Store user's posts
+//       })
+//       .addCase(fetchUserPosts.rejected, (state, action) => {
+//         state.loading = false;
+//         state.error = action.error.message;
 //       });
 //   },
 // });
 
-// export const { requestDetailSuccessAction } = AuthorSlice.actions;
-// export default AuthorSlice.reducer;
+// export const { setDetail } = mockApiSlice.actions;
+// export default mockApiSlice.reducer;

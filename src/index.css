@@ -85,3 +85,25 @@ code {
     flex: 1 1 100%; /* One item per row */
   }
 }
+.profile-container{
+  /* justify-content: center; */
+  text-align: center;
+  padding: 10px;
+  margin-left: 39%;
+  margin-top: 2em;
+  background-color: rgb(41, 38, 38);
+  color: white;
+  justify-items: center;
+  width: 35%;
+  height: 10%;
+}
+.Post-main{
+  font-size: x-large;
+  margin-left:15% ;
+  width: 10%;
+  height: auto;
+
+  /* padding: 20%; */
+  padding-top: 4%;
+  /* padding */
+}
