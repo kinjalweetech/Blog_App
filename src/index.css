@@ -185,3 +185,40 @@ button:disabled {
   color: white;
   border-color: #007bff;
 }
+.mainpost1{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Adjust width if needed */
+  padding: 10px;
+  border-style: inset;
+  margin-top: 1%;
+}
+.mainpost span{
+  margin-left: 10px;
+}
+.mainpost2{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Adjust width if needed */
+  padding: 10px;
+  border-style: inset;
+  margin-top: 1%;
+}
+.mainpost span{
+  margin-left: 10px;
+}
+.mainpost3{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Adjust width if needed */
+  padding: 10px;
+  border-style: inset;
+  margin-top: 1%;
+}
+.mainpost span{
+  margin-left: 10px;
+}
+

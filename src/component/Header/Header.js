@@ -4,7 +4,7 @@ import AuthorView from "../View/AutherView";
 const Header = () => {
   return (
     <>
-      <header>
+      <header className="sticky-top">
         <nav className="navbar navbar-expand-md bg-dark navbar-dark">
           <div className="container-fluid justify-content-between">
             <h2 className="navbar-brand">JSOM</h2>
