@@ -1,10 +1,9 @@
+import Comment from "../View/Comment";
 const Post2 = () => {
-  return (
-    <>
-      <div className="Post2">
-        <h1>Car</h1>
-        <p>
-          Ut tempora a enim necessitatibus atque voluptatem nulla placeat.
+  const post = {
+    id: 2,
+    title: "car",
+    content: `  Ut tempora a enim necessitatibus atque voluptatem nulla placeat.
           Architecto provident beatae cum et sint incidunt dignissimos. Adipisci
           qui dicta saepe optio sit qui est et delectus. Est suscipit rem
           sapiente sed est. Et reprehenderit assumenda. Consectetur ex aut odio
@@ -22,8 +21,21 @@ const Post2 = () => {
           quis nobis in voluptas. Incidunt repellat reprehenderit vitae hic est
           sapiente. Pariatur quibusdam et voluptatem et iste dicta mollitia
           repellendus. Consequatur modi hic. Fuga dolor autem omnis incidunt
-          voluptas quis dolor eum. Non et quia vel excepturi veniam.
-        </p>
+          voluptas quis dolor eum. Non et quia vel excepturi veniam.`,
+    date: "17/2/2020",
+    like: 3,
+  };
+  return (
+    <>
+      <div className="Post2">
+        <h1>{post.title}</h1>
+        <p>{post.content} </p>
+        <p>Date:{post.date}</p>
+        <p>Like:{post.like} </p>
+      </div>
+
+      <div>
+        <Comment postId={post.id} />
       </div>
     </>
   );

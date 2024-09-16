@@ -1,79 +1,126 @@
-// import React from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import Post1 from "../Post/Post1";
-// import { useNavigate } from "react-router-dom";
-// import { setDetail } from "../../Redux/ApiSlice";
-// import PostDetail from "../Post/PostDetail";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { fetchMockApiData, fetchUserPosts, setDetail } from "../../Redux/ApiSlice";
 
-// const MockApiView = () => {
-//   const { detail } = useSelector((state) => state.mockApi); // Get data and detailed data from Redux store
-//   console.log("data", detail);
+const MockApiView = () => {
+  const { detail, loading} = useSelector((state) => state.mockApi);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { userid } = useParams(); // Get userId from the URL
+  
+  
+  // Fetch detail from local storage on component mount
+  useEffect(() => {
+    if(userid) {
+        dispatch(fetchUserPosts(userid));
+        dispatch(fetchMockApiData(detail.id))
+    }
+    
+    // dispatch(fetchMockApiData(id))
+  }, [dispatch, detail, userid]);
 
-//   const dispatch = useDispatch();
-//   const navigate = useNavigate();
+  console.log(detail, "detail");
+  
 
-//   if (!detail || !detail.id) return <p>No details available</p>;
+  const handlePostClick = (postId) => {
+    dispatch(setDetail(postId));
+    navigate(`/post/${postId.id}`);
+  };
 
-//   const handlePostClick = (postId) => {
-//     dispatch(setDetail(postId)); // Set post details in Redux state
-//     navigate(`/post/${postId.id}`); // Navigate to the post detail page with the post id
-//   };
-//   console.log("postId", detail);
+  const handlePost2Click = (postId) => {
+    dispatch(setDetail(postId));
+    navigate(`/post2/${postId.id}`);
+  };
 
-//   return (
-//     <>
-//       <div className="profile-container">
-//         <img src={detail.avatar} alt="..." />
-//         <h2 style={{ padding: "10px 0" }}>{detail.name}</h2>
-//         <p>Id: {detail.id}</p>
-//         <p>POSTS : 4</p>
-//         <p>LIKES: 10</p>
-//       </div>
-//       <div className="Post-main">
-//         <p>POSTS</p>
-//         <div className="container-fluid">
-//           <div className="row custom-buttons">
-//             <div className="col-3 btn-style">Ascending By Date</div>
-//             <div className="col-3 btn-style">Descending By Date</div>
-//             <div className="col-3 btn-style">Ascending By Like</div>
-//             <div className="col-3 btn-style">Descending By Like</div>
-//           </div>
-//         </div>
-//         <div className="Post">
-//           <button className="mainpost1" onClick={() => handlePostClick(1)}>
-//             infrastructure Rubber generate{" "}
-//             <span style={{ marginLeft: "10px", display: "flex", gap: "10px" }}>
-//               12/2/2019
-//             </span>
-//             <span>like 6</span>
-//           </button>
-//         </div>
-//         <div className="Post">
-//           <button
-//             className="mainpost2"
-//             onClick={() => handlePostClick(<Post1 />)}
-//           >
-//             Car{" "}
-//             <span style={{ marginLeft: "28%", display: "flex", gap: "10px" }}>
-//               12/2/2019
-//             </span>
-//             <span>like 3</span>
-//           </button>
-//         </div>
-//         <div className="Post">
-//           <button
-//             className="mainpost3"
-//             onClick={() => handlePostClick(<Post1 />)}
-//           >
-//             bypassing Avon Tasty Plastic Gloves{" "}
-//             <span style={{ marginRight: "4%", display: "flex", gap: "10px" }}>
-//               12/2/2019
-//             </span>
-//             <span>like 1</span>
-//           </button>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-// export default MockApiView;
+  const handlePost3Click = (postId) => {
+    dispatch(setDetail(postId));
+    navigate(`/post3/${postId.id}`);
+  };
+
+  if (loading) return <p>Loading...</p>;
+  if (!detail) return <p>No details available</p>;
+
+  return (
+    <>
+      <div className="profile-container">
+        <img src={detail.avatar} alt="..." />
+        <h2 style={{ padding: "10px 0" }}>{detail.name}</h2>
+        <p>Id: {detail.id}</p>
+        <p>POSTS : 4</p>
+        <p>LIKES: 10</p>
+      </div>
+      <div className="Post-main">
+        <p>POSTS</p>
+        <div className="container-fluid">
+          <div className="row custom-buttons">
+            <div className="col-3 btn-style">Ascending By Date</div>
+            <div className="col-3 btn-style">Descending By Date</div>
+            <div className="col-3 btn-style">Ascending By Like</div>
+            <div className="col-3 btn-style">Descending By Like</div>
+          </div>
+        </div>
+        <div className="Post">
+          <button
+            className="mainpost1"
+            onClick={() =>
+              handlePostClick({
+                id: 1,
+                title: "Post 1",
+                date: "12/2/2019",
+                likes: 6,
+              })
+            }
+          >
+            infrastructure Rubber generate
+            <span style={{ marginLeft: "10px", display: "flex", gap: "10px" }}>
+              12/2/2019
+            </span>
+            <span>like 6</span>
+          </button>
+        </div>
+        {/* <Comment postId={1}/> */}
+        <div className="Post">
+          <button
+            className="mainpost2"
+            onClick={() =>
+              handlePost2Click({
+                id: 2,
+                title: "Car",
+                date: "15/5/2019",
+                likes: 3,
+              })
+            }
+          >
+            Car
+            <span style={{ marginLeft: "28%", display: "flex", gap: "10px" }}>
+              15/5/2019
+            </span>
+            <span>like 3</span>
+          </button>
+        </div>
+        <div className="Post">
+          <button
+            className="mainpost3"
+            onClick={() =>
+              handlePost3Click({
+                id: 3,
+                title: "Tasty Plastic Gloves",
+                date: "20/7/2019",
+                likes: 1,
+              })
+            }
+          >
+            bypassing Avon Tasty Plastic Gloves
+            <span style={{ marginRight: "4%", display: "flex", gap: "10px" }}>
+              20/7/2019
+            </span>
+            <span>like 1</span>
+          </button>
+        </div>
+        {/* <Comment/> */}
+      </div>
+    </>
+  );
+};
+export default MockApiView;

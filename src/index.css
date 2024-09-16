@@ -96,7 +96,7 @@ code {
   justify-items: center;
   width: 25%;
   height: auto;
-  margin: auto;
+  margin: 40px auto;
 }
 
 .Post-main{
@@ -138,25 +138,6 @@ code {
     margin-bottom: 10px;
   }
 }
-/* pre-next button */
-/* .pagination-controls {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-button {
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-button:disabled {
-  background-color: #cccccc;
-} */
 
 .pagination {
   display: flex;
@@ -184,6 +165,46 @@ button:disabled {
   background-color: #007bff;
   color: white;
   border-color: #007bff;
+}
+
+.post1{
+  background-color: #1d1b1b;
+  margin-top:40px;
+  color: white;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  padding: 40px;
+}
+.post1 h1{
+  padding-bottom: 25px;
+}
+.Post2{
+  background-color: #1d1b1b;
+  margin-top:40px;
+  color: white;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  padding: 40px;
+}
+.Post2 h1{
+  padding-bottom: 25px;
+}
+.Post3{
+  background-color: #1d1b1b;
+  margin-top:40px;
+  color: white;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  padding: 40px;
+}
+.Post3 h1{
+  padding-bottom: 25px;
+}
+.mainpost span{
+  margin-left: 10px;
 }
 .mainpost1{
   display: flex;
@@ -218,7 +239,12 @@ button:disabled {
   border-style: inset;
   margin-top: 1%;
 }
-.mainpost span{
-  margin-left: 10px;
-}
 
+.comment-section{
+  text-align: center;
+  font-size: x-large;
+  padding-top: 40px;
+}
+.comment {
+  padding-top: 40px;
+}
