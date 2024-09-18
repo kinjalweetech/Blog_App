@@ -10,21 +10,23 @@ import MockApiCreate from "./component/View/AutherView";
 import Post1 from "./component/Post/Post1";
 import Post2 from "./component/Post/Post2";
 import Post3 from "./component/Post/Post3";
+// import UserDetails from "./component/View/UserDetail";
+import UserDetail from "./component/View/UserDetail"
 
 function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
         <Header />
+        
         <Routes>
           <Route path="/" element={<AutherView />} />
           <Route path="/page/:pageNumber" element={<MockApiCreate />} />
           <Route path="/details/:id" element={<MockApiView />} />
           <Route path="/post/:id" element={<Post1 />} />
           <Route path="/post2/:id" element={<Post2 />} />
-          <Route path="/post3/:id" element={<Post3/>} />
-          <Route path="/user/:userId" element={<MockApiView/>} />
-
+          <Route path="/post3/:id" element={<Post3 />} />
+          <Route path="/comments/:userId"element={<UserDetail/>}/>
         </Routes>
         <Footer />
       </BrowserRouter>
@@ -33,4 +35,3 @@ function App() {
 }
 
 export default App;
-

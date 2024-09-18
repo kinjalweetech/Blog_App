@@ -1,27 +1,20 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import { fetchMockApiData, fetchUserPosts, setDetail } from "../../Redux/ApiSlice";
+import { fetchMockApiData, setDetail } from "../../Redux/ApiSlice";
 
 const MockApiView = () => {
-  const { detail, loading} = useSelector((state) => state.mockApi);
+  const { detail, loading } = useSelector((state) => state.mockApi);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { userid } = useParams(); // Get userId from the URL
-  
-  
+
   // Fetch detail from local storage on component mount
   useEffect(() => {
-    if(userid) {
-        dispatch(fetchUserPosts(userid));
-        dispatch(fetchMockApiData(detail.id))
+    if (userid) {
+      dispatch(fetchMockApiData(detail));
     }
-    
-    // dispatch(fetchMockApiData(id))
   }, [dispatch, detail, userid]);
-
-  console.log(detail, "detail");
-  
 
   const handlePostClick = (postId) => {
     dispatch(setDetail(postId));
@@ -37,6 +30,7 @@ const MockApiView = () => {
     dispatch(setDetail(postId));
     navigate(`/post3/${postId.id}`);
   };
+  console.log("detail", detail);
 
   if (loading) return <p>Loading...</p>;
   if (!detail) return <p>No details available</p>;
@@ -47,6 +41,7 @@ const MockApiView = () => {
         <img src={detail.avatar} alt="..." />
         <h2 style={{ padding: "10px 0" }}>{detail.name}</h2>
         <p>Id: {detail.id}</p>
+        {/* <p>createdAt:{detail.createdAt}</p> */}
         <p>POSTS : 4</p>
         <p>LIKES: 10</p>
       </div>

@@ -32,9 +32,6 @@ const Header = () => {
           </div>
         </nav>
       </header>
-      <div>
-        {/* <AuthorView/> */}
-      </div>
     </>
   );
 };

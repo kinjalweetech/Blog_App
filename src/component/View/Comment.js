@@ -1,24 +1,24 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchMockApiData, setDetail } from "../../Redux/ApiSlice";
-
 
 const Comment = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { detail } = useSelector((state) => state.mockApi);
 
   // Placeholder comment data for now, to be replaced by API data
   const comments = [
-    { id: 65, text: "Great post!", userId: 65},
-    { id: 45, text: "Thanks for sharing!", userId: 45 },
-    { id: 40, text: "Very informative!", userId: 40 },
+    { id: 65, text: "Great post!", userId: 65, name: "Courtney Koss III"},
+    { id: 45, text: "Thanks for sharing!", userId: 45, name: "Terry Waters" },
+    { id: 40, text: "Very informative!", userId: 40, name: "Judith Tillman" },
   ];
 
   // Navigate to the user detail page when clicking on user ID
-  const handleUserClick = (userId) => {
-    dispatch(setDetail(userId));
-    navigate(`/user/${userId}`);
+  const handleUserClick = (id, userId, name) => {
+    dispatch(setDetail({ id, userId, name }));
+    navigate(`/comments/${userId}`);
   };
 
   // Simulating a fetch effect; later replace with an actual API call
@@ -34,12 +34,14 @@ const Comment = () => {
           <p>Comment: {comment.text}</p>
           <p>
             User:
-            <span
+            <button
               style={{ color: "blue", cursor: "pointer" }}
-              onClick={() => handleUserClick(comment.userId)} // Handle click on user ID
+              onClick={() =>
+                handleUserClick(comment.id, comment.userId, comment.name)
+              }
             >
-              {comment.userId}
-            </span>
+              {comment.userId}<p>{comment.name}</p>
+            </button>
           </p>
         </div>
       ))}
