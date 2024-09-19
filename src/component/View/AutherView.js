@@ -29,7 +29,7 @@ const MockApiCreate = () => {
               <div className="data">
                 <p>Name: {user.name}</p>
                 <p>Id: {user.id}</p>
-                <p>Created At: {user.createdAt}</p>
+                {/* <p>Created At: {user.createdAt}</p> */}
                 <button
                   className="view-details-button"
                   onClick={() => handleDetailSuccess(user)} // Pass user to handleDetailSuccess

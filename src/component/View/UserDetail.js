@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchMockApiData } from "../../Redux/ApiSlice"; // Assuming you fetch from the API
+import { fetchMockApiData } from "../../Redux/ApiSlice"; 
 
 const UserDetails = () => {
-  const { userId } = useParams(); // Get the userId from the URL
+  const { userId } = useParams(); 
   const dispatch = useDispatch();
   const detail = useSelector((state) => state.mockApi.detail); // Select the user details from Redux
 

@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchMockApiData, setDetail } from "../../Redux/ApiSlice";
 
 const Comment = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { detail } = useSelector((state) => state.mockApi);
+  
 
   // Placeholder comment data for now, to be replaced by API data
   const comments = [
@@ -34,14 +34,14 @@ const Comment = () => {
           <p>Comment: {comment.text}</p>
           <p>
             User:
-            <button
+            <span
               style={{ color: "blue", cursor: "pointer" }}
               onClick={() =>
                 handleUserClick(comment.id, comment.userId, comment.name)
               }
             >
               {comment.userId}<p>{comment.name}</p>
-            </button>
+            </span>
           </p>
         </div>
       ))}

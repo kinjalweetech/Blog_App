@@ -1,5 +1,5 @@
 import React from "react";
-import AuthorView from "../View/AutherView";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -7,7 +7,10 @@ const Header = () => {
       <header className="sticky-top">
         <nav className="navbar navbar-expand-md bg-dark navbar-dark">
           <div className="container-fluid justify-content-between">
-            <h2 className="navbar-brand">JSOM</h2>
+            <Link to="/" className="navbar-brand">
+              <h5>JSOM</h5>
+            </Link>
+
             <button
               className="navbar-toggler"
               type="button"
@@ -19,13 +22,19 @@ const Header = () => {
             <div className="collapse navbar-collapse" id="collapsibleNavbar">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
-                  <h2 className="nav-link">Author</h2>
+                  <Link to="/" className="nav-link">
+                    <h5>Auther</h5>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <h2 className="nav-link">MostLikedPost</h2>
+                  <Link to="/" className="nav-link">
+                    <h5>MostLike</h5>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <h2 className="nav-link">MostCommentPost</h2>
+                  <Link to="/" className="nav-link">
+                    <h5>MostCommentLike</h5>
+                  </Link>
                 </li>
               </ul>
             </div>

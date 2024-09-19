@@ -5,13 +5,18 @@ import axios from "axios";
 export const fetchMockApiData = createAsyncThunk(
   "mockApi/fetchData",
   async (page = 1) => {
-    const response = await axios.get(
-      `https://66d7f3d137b1cadd8052c5c1.mockapi.io/https/mock?page=${page}&limit=12`
-    );
-    console.log("author", response.data);
-    return response.data;
-  }
-);
+    try {
+      const response = await axios.get(
+        `https://66d7f3d137b1cadd8052c5c1.mockapi.io/https/mock?page=${page}&limit=12`
+      );
+      console.log("author", response.data);
+      return response.data;
+      
+    } catch (error) {
+        return error.response.data;
+    }
+    
+  });
 
 // Slice for mock API
 const mockApiSlice = createSlice({
@@ -32,7 +37,7 @@ const mockApiSlice = createSlice({
     },
     setPost: (state, action) => {
       state.currentPost = action.payload;
-    },
+    },  
   },
   extraReducers: (builder) => {
     builder

@@ -74,7 +74,6 @@ const MockApiView = () => {
             <span>like 6</span>
           </button>
         </div>
-        {/* <Comment postId={1}/> */}
         <div className="Post">
           <button
             className="mainpost2"
@@ -113,7 +112,6 @@ const MockApiView = () => {
             <span>like 1</span>
           </button>
         </div>
-        {/* <Comment/> */}
       </div>
     </>
   );

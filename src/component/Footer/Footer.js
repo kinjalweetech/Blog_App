@@ -4,7 +4,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <div className='Footer'>
-      <h5>Made With by ❤ Kinjal Khunt</h5>
+      <h5>Made by ❤ Kinjal Khunt</h5>
     </div>
   )
 }
